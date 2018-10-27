@@ -144,4 +144,56 @@ month_homicide
 #in a murdering mood with the presence of Valentine's?...
 #Taking a second look, there seems to be a higher homicide rate during the warmer
 #months of summer.
-#Test
+
+#Let's see if there are any links between homicide rate and gender.
+gender_homicide={}
+for row in data:
+    gender=row[5]
+    if gender in gender_homicide:
+        gender_homicide[gender]+=1
+    else:
+        gender_homicide[gender]=1
+
+for each in gender_homicide.keys():
+    gender_homicide[each]=gender_homicide[each]/total_homicide
+    
+gender_homicide
+
+'''
+There is a definite link between gender and homicide. Males are more likely to commit
+homicide than females. This is a fair sanity check with reality...
+'''
+
+#Let's see if there any links between education and the probability of
+#committing homicides. Hypothesis is that if perpetrator has lower education
+#level, he or she is more likely to commit a homicide.
+education_homicide={}
+for row in data:
+    education=row[10]
+    if education=='1':
+        education='1 Less than High School'
+    if education=='2':
+        education='2 Graduated from High School or equivalent'
+    if education=='3':
+        education='3 Some College'
+    if education=='4':
+        education='4 At least graduated from College'
+    if education=='5':
+        education='5 N/A'
+    if education=='NA':
+        education='5 N/A'
+    if education in education_homicide:
+        education_homicide[education]+=1
+    else:
+        education_homicide[education]=1
+        
+for each in education_homicide.keys():
+    education_homicide[each]=education_homicide[each]/total_homicide
+    
+education_homicide
+'''
+Interestingly, people who graduated high school but did not pursue high education
+are more likely to commit homicides. This definitely goes against my hypothesis because
+the percentage rate for people with less than high school is not higher than that of those
+that did graduated from high school
+'''
