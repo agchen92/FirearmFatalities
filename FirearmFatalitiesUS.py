@@ -122,3 +122,25 @@ mapping = {"Asian/Pacific Islander": 15159516 + 674625,
 
 for k,v in race_counts.items():
     race_per_hundredk[k]=v*100000/mapping[k]
+
+#Let's see if there is any link between month and homicide rate.
+month_homicide={}
+total_homicide=0
+for row in data:
+    month=row[2]
+    total_homicide+=1
+    if month in month_homicide:
+        month_homicide[month]+=1
+    else:
+        month_homicide[month]=1
+
+for each in month_homicide.keys():
+    month_homicide[each]=month_homicide[each]/total_homicide
+    
+month_homicide
+#Judging by the homicide rates of each month, we can conclude there is
+#no link between the months and the homicide rates. Each month looks about
+#the same with the exception for February. Maybe people are less likely to be
+#in a murdering mood with the presence of Valentine's?...
+#Taking a second look, there seems to be a higher homicide rate during the warmer
+#months of summer.
