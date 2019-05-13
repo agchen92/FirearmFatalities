@@ -1,4 +1,4 @@
-#Reading data from https://github.com/fivethirtyeight/guns-data
+##Reading data from https://github.com/fivethirtyeight/guns-data
 import csv
 f=open("guns.csv","r")
 data=list(csv.reader(f))
